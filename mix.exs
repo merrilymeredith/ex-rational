@@ -10,6 +10,7 @@ defmodule Rational.Mixfile do
      elixir: "~> 1.1",
      deps: deps,
      docs: [
+       main: Rational,
        extras: ["README.md"]]]
   end
 
