@@ -4,16 +4,17 @@ defmodule Rational.Mixfile do
   def project do
     [app: :rational,
      version: "0.0.1",
+     name: "Rational",
+     source_url: "https://github.com/merrilymeredith/ex-rational",
+     homepage_url: "https://github.com/merrilymeredith/ex-rational",
      elixir: "~> 1.1",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     docs: [
+       extras: ["README.md"]]]
   end
 
   defp deps do
-    [
-      {:earmark, "~> 0.0", only: :dev},
-      {:ex_doc, "~> 0.0", only: :dev},
-    ]
+    [{:earmark, "~> 0.0", only: :dev},
+     {:ex_doc, "~> 0.0", only: :dev}]
   end
 end
