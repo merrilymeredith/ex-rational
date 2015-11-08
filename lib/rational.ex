@@ -49,10 +49,8 @@ defmodule Rational do
   """
   @spec add(t, t) :: t
   def add(ra, rb) do
-    new(
-     ra.numer * rb.denom + rb.numer * ra.denom,
-     ra.denom * rb.denom
-    )
+    new(ra.numer * rb.denom + rb.numer * ra.denom,
+        ra.denom * rb.denom)
   end
 
   @doc """
@@ -63,10 +61,8 @@ defmodule Rational do
   """
   @spec sub(t, t) :: t
   def sub(ra, rb) do
-    new(
-     ra.numer * rb.denom - rb.numer * ra.denom,
-     ra.denom * rb.denom
-    )
+    new(ra.numer * rb.denom - rb.numer * ra.denom,
+        ra.denom * rb.denom)
   end
 
   @doc """
@@ -77,10 +73,8 @@ defmodule Rational do
   """
   @spec mul(t, t) :: t
   def mul(ra, rb) do
-    new(
-      ra.numer * rb.numer,
-      ra.denom * rb.denom
-    )
+    new(ra.numer * rb.numer,
+        ra.denom * rb.denom)
   end
 
   @doc """
@@ -91,10 +85,8 @@ defmodule Rational do
   """
   @spec div(t, t) :: t
   def div(ra, rb) do
-    new(
-      ra.numer * rb.denom,
-      ra.denom * rb.numer
-    )
+    new(ra.numer * rb.denom,
+        ra.denom * rb.numer)
   end
 
   @doc """
