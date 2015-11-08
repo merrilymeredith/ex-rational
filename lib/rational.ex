@@ -100,6 +100,25 @@ defmodule Rational do
   @spec approx(t) :: float
   def approx(r), do: r.numer/r.denom
 
+  @doc """
+  Raise a rational to the given power.
+
+      iex> Rational.pow Rational.new(2,3), 2
+      %Rational{numer: 4, denom: 9}
+      iex> Rational.pow Rational.new(2,3), 0
+      1
+  """
+  @spec pow(t, integer) :: t | integer
+  def pow(r, 0), do: 1
+  def pow(r, 1), do: r
+  def pow(r, n) when n > 1 do
+    new( trunc(:math.pow(r.numer, n)),
+         trunc(:math.pow(r.denom, n)))
+  end
+  def pow(r, n) when n < 0 do
+    new( trunc(:math.pow(r.denom, n)),
+         trunc(:math.pow(r.numer, n)))
+  end
 
   defp gcd(a,0), do: a
   defp gcd(a,b), do: gcd(b, mod(a,b))
