@@ -109,11 +109,11 @@ defmodule Rational do
       iex> Rational.pow Rational.new(2,3), 2
       %Rational{numer: 4, denom: 9}
       iex> Rational.pow Rational.new(2,3), 0
-      1
+      %Rational{numer: 1, denom: 1}
   """
-  @spec pow(t, integer) :: t | integer
-  def pow(_r, 0), do: 1
-  def pow(r, 1), do: r
+  @spec pow(t, integer) :: t
+  def pow(_r, 0), do: new(1,1)
+  def pow(r, 1),  do: r
   def pow(r, n) when n > 1 do
     new( trunc(:math.pow(r.numer, n)),
          trunc(:math.pow(r.denom, n)))
