@@ -19,12 +19,15 @@ defmodule Rational do
   @type t :: %Rational{numer: integer, denom: non_neg_integer}
 
   @doc """
-  Construct a new rational. It will be reduced to its simplest terms.
+  Construct a new rational. It will be reduced to its simplest terms as a
+  rational. (i.e. 4/1 will stay 4/1)
 
       iex> Rational.new(4,8)
       %Rational{numer: 1, denom: 2}
   """
-  @spec new(integer, non_neg_integer) :: t
+  @spec new(integer, integer) :: t
+  def new(n, d) when n > 0 and d < 0, do: new(-n,-d)
+  def new(n, d) when n < 0 and d < 0, do: new(-n,-d)
   def new(n, d) do
     g = gcd(n, d)
     %Rational{numer: Kernel.div(n,g), denom: Kernel.div(d,g)}
