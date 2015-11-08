@@ -109,7 +109,7 @@ defmodule Rational do
       1
   """
   @spec pow(t, integer) :: t | integer
-  def pow(r, 0), do: 1
+  def pow(_r, 0), do: 1
   def pow(r, 1), do: r
   def pow(r, n) when n > 1 do
     new( trunc(:math.pow(r.numer, n)),
