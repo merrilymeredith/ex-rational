@@ -120,8 +120,16 @@ defmodule Rational do
          trunc(:math.pow(r.numer, n)))
   end
 
-  defp gcd(a,0), do: a
-  defp gcd(a,b), do: gcd(b, mod(a,b))
+
+  @doc """
+  Calculate Greatest Common Divisor of two integers using Euclid's algorithm.
+
+      iex> Rational.gcd 24, 8
+      8
+  """
+  @spec gcd(integer, integer) :: integer
+  def gcd(a,0), do: a
+  def gcd(a,b), do: gcd(b, mod(a,b))
 
   defp mod(_a, 0), do: 0
   defp mod(a, b) do
