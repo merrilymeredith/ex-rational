@@ -26,6 +26,7 @@ defmodule Rational do
       %Rational{numer: 1, denom: 2}
   """
   @spec new(integer, integer) :: t
+  def new(_n, 0), do: raise ArithmeticError
   def new(n, d) when n > 0 and d < 0, do: new(-n,-d)
   def new(n, d) when n < 0 and d < 0, do: new(-n,-d)
   def new(n, d) do
