@@ -37,7 +37,7 @@ defmodule Rational do
   @doc """
   Compare two rationals.
 
-      iex> Rational.equal? Rational.new(1,2), Rational.new(1,8) 
+      iex> Rational.equal? Rational.new(1,2), Rational.new(1,8)
       false
   """
   @spec equal?(t, t) :: boolean
